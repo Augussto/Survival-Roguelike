@@ -74,6 +74,9 @@ namespace StarterAssets
 
 		private const float _threshold = 0.01f;
 
+		public PlayerActions _playerActions;
+		public bool doingAnimation;
+
 		private bool IsCurrentDeviceMouse
 		{
 			get
@@ -101,6 +104,7 @@ namespace StarterAssets
 			_input = GetComponent<StarterAssetsInputs>();
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 			_playerInput = GetComponent<PlayerInput>();
+			_playerActions = GetComponent<PlayerActions>();
 #else
 			Debug.LogError( "Starter Assets package is missing dependencies. Please use Tools/Starter Assets/Reinstall Dependencies to fix it");
 #endif
@@ -271,7 +275,11 @@ namespace StarterAssets
 			if (_input.attack)
 			{
 				Debug.Log("Ataque");
-				_input.attack = false;
+				if(!doingAnimation)
+				{
+					doingAnimation = true;
+                    StartCoroutine(_playerActions.attackAnimations());
+                }
 			}
 		}
 	}
