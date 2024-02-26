@@ -42,10 +42,10 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "InventorySlot",
-                    "type": "PassThrough",
-                    "id": "ec304311-8aab-4e14-b7d8-df6db802334f",
-                    "expectedControlType": "",
+                    "name": "Attack",
+                    "type": "Button",
+                    "id": "45f934ec-c99c-4a38-b6f4-f73143db6b65",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -230,12 +230,12 @@
                 },
                 {
                     "name": "",
-                    "id": "bdbca748-06ea-43ed-88ae-ae5365c2c6ee",
-                    "path": "<Mouse>/scroll/y",
+                    "id": "5c35053f-8a58-4491-b60a-49556030207e",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "InventorySlot",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

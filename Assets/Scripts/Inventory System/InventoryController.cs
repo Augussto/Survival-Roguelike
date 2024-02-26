@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 public class InventoryController : MonoBehaviour
 {
-    
+    [SerializeField] private Transform dropItem;
     public Vector2[] items = new Vector2[8];
     [SerializeField] int availableSlot;
 
     private UIController uic;
+    private Item[] collectedItemsList = new Item[8];
 
     // Start is called before the first frame update
     void Start()
@@ -42,9 +43,27 @@ public class InventoryController : MonoBehaviour
         return isEmptySlot;
     }
 
-    public void SaveItem(float ID, Sprite icon, float amount)
+    public void SaveItem(Item item)
     {
-        items[availableSlot] = new Vector2(ID, items[availableSlot].y + amount);
-        uic.ChangeItemIcon(icon,availableSlot);
+        items[availableSlot] = new Vector2(item.ID, items[availableSlot].y + item.amount);
+        collectedItemsList[availableSlot] = item;
+        uic.ChangeItemIcon(item.icon ,availableSlot);
+        uic.UpdateAmountText(availableSlot, items[availableSlot].y);
+    }
+
+    public void DropItem(int slotSelected)
+    {
+        if (items[slotSelected].x != 0)
+        {
+            items[slotSelected].y -= collectedItemsList[slotSelected].amount;
+            Instantiate(collectedItemsList[slotSelected].gameObject,dropItem.position,Quaternion.identity);
+            if (items[slotSelected].y == 0)
+            {
+                items[slotSelected].x = 0;
+                collectedItemsList[slotSelected] = null;
+                uic.ChangeItemIcon(null, slotSelected);
+            }
+        }
+        uic.UpdateAmountText(slotSelected, items[slotSelected].y);
     }
 }

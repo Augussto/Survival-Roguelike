@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6031413076002535338}
   - component: {fileID: 6031413076002535341}
   - component: {fileID: 6031413076002535337}
+  - component: {fileID: -1723026546495947862}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Resource
@@ -114,3 +115,18 @@ MonoBehaviour:
   currentLife: 0
   dropPrefab: {fileID: 6075490722506186414, guid: c760f5949f7acca42ab5dd2587b4702e,
     type: 3}
+--- !u!114 &-1723026546495947862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6031413076002535340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26e5998816d8529429cd212327b05b75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CutCascades: 3
+  ExplodeForce: 0
+  original: 1

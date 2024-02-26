@@ -7,10 +7,13 @@ using UnityEngine.UI;
 public class SlotSelection : MonoBehaviour
 {
     [SerializeField] private Image [] slotsInventory;
-    [SerializeField] private int slotsSelected;
+    public int slotsSelected;
+
+    private InventoryController inventoryController;
     // Start is called before the first frame update
     void Start()
     {
+        inventoryController = GetComponent<InventoryController>();
         slotsInventory[0].color = Color.yellow;
         slotsSelected = 0;
     }
@@ -37,6 +40,11 @@ public class SlotSelection : MonoBehaviour
                 slotsSelected = slotsInventory.Length -1;
             }
             slotsInventory[slotsSelected].color = Color.yellow;
+        }
+
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            inventoryController.DropItem(slotsSelected);
         }
     }
 }

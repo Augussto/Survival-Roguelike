@@ -115,6 +115,7 @@ namespace StarterAssets
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
+			MeleeAttack();
 		}
 
 		private void LateUpdate()
@@ -263,6 +264,15 @@ namespace StarterAssets
 
 			// when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
 			Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z), GroundedRadius);
+		}
+
+		public void MeleeAttack()
+		{
+			if (_input.attack)
+			{
+				Debug.Log("Ataque");
+				_input.attack = false;
+			}
 		}
 	}
 }

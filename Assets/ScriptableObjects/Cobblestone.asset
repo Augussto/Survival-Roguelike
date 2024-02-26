@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d7a160f2838f9b49af9c777c7352655, type: 3}
+  m_Name: Cobblestone
+  m_EditorClassIdentifier: 
+  name: COBBLESTONE
+  ID: 2
+  icon: {fileID: 21300000, guid: 0fa3781809c3a58408857cae801e1cb7, type: 3}
+  amount: 5
+  gameObject: {fileID: 8759565870697880027, guid: 32d2540a6956ee741a1932be5408170a,
+    type: 3}

@@ -7,6 +7,7 @@ public class UIController : MonoBehaviour
 {
     [SerializeField] private Text pickUpText;
     [SerializeField] private Image[] itemIcons;
+    [SerializeField] private Text[] amountText;
 
     public void ShowPickUpText(string itemName)
     {
@@ -22,5 +23,10 @@ public class UIController : MonoBehaviour
     public void ChangeItemIcon(Sprite newIcon, int pos)
     {
         itemIcons[pos].sprite = newIcon;
+    }
+
+    public void UpdateAmountText(int pos, float amount)
+    {
+        amountText[pos].text = amount.ToString();
     }
 }

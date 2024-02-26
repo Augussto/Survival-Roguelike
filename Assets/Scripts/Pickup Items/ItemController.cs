@@ -5,10 +5,7 @@ using UnityEngine.UI;
 
 public class ItemController : MonoBehaviour
 {
-    [SerializeField] string itemName;
-    [SerializeField] float amount;
-    public float ID;
-    public Sprite icon;
+    public Item item;
     public bool isBeeingWatched;
     private UIController uic;
     private InventoryController inventoryController;
@@ -26,7 +23,7 @@ public class ItemController : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.E))
             {
-                if (inventoryController.CheckForSlot(ID))
+                if (inventoryController.CheckForSlot(item.ID))
                 {
                     uic.HidePickUpText();
                     PickUpItem();
@@ -37,13 +34,13 @@ public class ItemController : MonoBehaviour
 
     private void PickUpItem()
     {
-        inventoryController.SaveItem(ID, icon, amount);
+        inventoryController.SaveItem(item);
         Destroy(this.gameObject);
     }
 
     public void TextForPickUp()
     {
-        uic.ShowPickUpText(itemName);
+        uic.ShowPickUpText(item.name);
     }
     public void HideTextForPickUp()
     {
